@@ -5,6 +5,8 @@ public class Person {
 	private int id;
 	private String name;
 	
+	private int taxId;
+	
 	public Person() {
 		
 	}
@@ -19,6 +21,14 @@ public class Person {
 	}
 	
 	public String toString() {
-		return "Person [id=" + this.id + ", name=" + this.name + "]";
+		return "Person [id=" + this.id + ", name=" + this.name + ", taxId=" + this.taxId + "]";
+	}
+
+	public int getTaxId() {
+		return taxId;
+	}
+
+	public void setTaxId(int taxId) {
+		this.taxId = taxId;
 	}
 }
