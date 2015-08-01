@@ -7,6 +7,11 @@
 		<constructor-arg value="666" type="int" name="id"/>
 		<constructor-arg value="Lucifer" type="String" name="name"/>
 		<property name="taxId" value="666666"/>
+		<property name="address" ref="address"></property>
 	</bean>
 
+	<bean id="address" class="sk.garaj.spring.tutorial.app.Address">
+		<constructor-arg name="street" value="666 Devil Street"></constructor-arg>
+		<constructor-arg name="postcode" value="66666"></constructor-arg>
+	</bean>
 </beans>
