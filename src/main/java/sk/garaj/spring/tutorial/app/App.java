@@ -12,7 +12,7 @@ public class App {
 		Person person = (Person) context.getBean("person");
 		person.speak();
 		
-		Address address = (Address) context.getBean("address");
+		Address address = (Address) context.getBean("address2");
 		
 		System.out.println(person);
 		System.out.println(address);
