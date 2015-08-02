@@ -1,5 +1,7 @@
 package sk.garaj.spring.tutorial.app;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,13 +11,13 @@ public class App {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("sk/garaj/spring/tutorial/app/beans/beans.xml");
 		
-		Person person = (Person) context.getBean("person");
-		person.speak();
+		OffersDAO offersDao = (OffersDAO) context.getBean("offersDao");
 		
-		Address address = (Address) context.getBean("address2");
+		List<Offer> offers = offersDao.getOffers();
 		
-		System.out.println(person);
-		System.out.println(address);
+		for(Offer offer : offers) {
+			System.out.println(offer);
+		}
 		
 		((ClassPathXmlApplicationContext)context).close();
 	}
