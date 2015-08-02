@@ -5,15 +5,28 @@
 	default-init-method="init" default-destroy-method="destroy">
 
 	<bean id="person" class="sk.garaj.spring.tutorial.app.Person"
-		init-method="onCreate" destroy-method="onDestroy">
+		init-method="onCreate" destroy-method="onDestroy" scope="singleton"
+		factory-bean="personFactory" factory-method="createPerson">
 		<constructor-arg value="666" type="int" name="id"/>
 		<constructor-arg value="Lucifer" type="String" name="name"/>
 		<property name="taxId" value="666666"/>
 		<property name="address" ref="address"></property>
 	</bean>
 
+	<bean id="person2" class="sk.garaj.spring.tutorial.app.Person"
+		init-method="onCreate" destroy-method="onDestroy" scope="singleton"
+		factory-method="getInstance">
+		<constructor-arg value="777" type="int" name="id"/>
+		<constructor-arg value="Lucky Luke" type="String" name="name"/>
+		<property name="taxId" value="777777"/>
+		<property name="address" ref="address"></property>
+	</bean>
+
 	<bean id="address" class="sk.garaj.spring.tutorial.app.Address">
 		<constructor-arg name="street" value="666 Devil Street"></constructor-arg>
 		<constructor-arg name="postcode" value="66666"></constructor-arg>
+	</bean>
+	<bean id="personFactory"
+		class="sk.garaj.spring.tutorial.app.PersonFactory">
 	</bean>
 </beans>
